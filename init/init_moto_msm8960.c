@@ -112,8 +112,6 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         property_set("persist.radio.eons.enabled", "true");
         property_set("ro.cdma.nbpcd", "1");
         property_set("ro.mot.ignore_csim_appid", "true");
-        property_set("telephony.rilV7NeedCDMALTEPhone" , "true");
-        property_set("ro.cdma.subscribe_on_ruim_ready", "true");
         property_set("ro.telephony.gsm-routes-us-smsc", "1");
         property_set("persist.radio.vrte_logic", "2");
         property_set("persist.radio.0x9e_not_callname", "1");
@@ -136,7 +134,7 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         property_set("ro.cdma.international.eri", "2,74,124,125,126,157,158,159,193,194,195,196,197,198,228,229,230,231,232,233,234,235");
         property_set("ro.cdma.home.operator.isnan", "1");
         property_set("persist.radio.vrte_logic", "2");
-        property_set("rro.cdma.subscription", "0");
+        property_set("ro.cdma.subscription", "0");
         property_set("ro.config.svdo", "true");
         property_set("persist.radio.skip_data_check", "1");
         property_set("ro.mot.ignore_csim_appid", "true");
@@ -146,10 +144,22 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         property_set("ro.cdma.home.operator.alpha", "U.S. Cellular");
         property_set("ro.cdma.home.operator.numeric", "311220");
         property_set("gsm.sim.operator.numeric", "311580");
-        property_set("telephony.rilV7NeedCDMALTEPhone", "true");
-        property_set("ro.cdma.subscribe_on_ruim_ready", "true");
-    } else if ((ISMATCH(carrier, "sprint")) || (strstr(hardware_variant, "Asanti"))) {
-        /* xt897 */
+    } else if (ISMATCH(modelno, "XT897")) {
+        /* xt897 CSpire */
+        property_set("ro.product.device", "asanti_c");
+        property_set("ro.product.model", "PHOTON Q");
+        property_set("ro.build.description", "asanti_c_cspire-user 4.1.2 9.8.2Q-122_XT897_FFW-7 8 release-keys");
+        property_set("ro.build.fingerprint", "motorola/XT897_us_csp/asanti_c:4.1.2/9.8.2Q-122_XT897_FFW-7/8:user/release-keys");
+        property_set("ro.sf.lcd_density", "240");
+        property_set("ro.config.svdo", "true");
+        property_set("ro.config.svlte1x", "true");
+        property_set("ro.cdma.nbpcd", "0");
+        property_set("ro.cdma.home.operator.alpha", "Cspire");
+        property_set("ro.cdma.home.operator.numeric", "311230");
+        property_set("ro.cdma.subscription", "1");
+        property_set("DEVICE_PROVISIONED", "1");
+    } else if (ISMATCH(carrier, "sprint")) {
+        /* xt897 Sprint */
         property_set("ro.product.device", "asanti_c");
         property_set("ro.product.model", "PHOTON Q");
         property_set("ro.build.description", "XT897_us_spr-user 4.1.2 9.8.2Q-122_XT897_FFW-5 6 release-keys");
@@ -157,19 +167,23 @@ void init_msm_properties(unsigned long msm_id, unsigned long msm_ver, char *boar
         property_set("ro.sf.lcd_density", "240");
         property_set("ro.config.svdo", "true");
         property_set("ro.config.svlte1x", "true");
-        property_set("ro.telephony.gsm-routes-us-smsc", "1");
         property_set("ro.cdma.nbpcd", "0");
-        property_set("ro.cdma.home.operator.isnan", "1");
-        property_set("ro.cdma.otaspnumschema", "SELC,1,80,99");
-        property_set("persist.radio.vrte_logic", "2");
-        property_set("persist.radio.skip_data_check", "1");
-        property_set("persist.ril.max.crit.qmi.fails", "4");
+        property_set("ro.cdma.international.eri", "2,74,124,125,126,157,158,159,193,194,195,196,197,198,228,229,230,231,232,233,234,235");
         property_set("ro.cdma.home.operator.alpha", "Sprint");
         property_set("ro.cdma.home.operator.numeric", "310120");
-        property_set("rro.cdma.subscription", "1");
+        property_set("ro.cdma.subscription", "1");
         property_set("DEVICE_PROVISIONED", "1");
-        property_set("persist.sys.report_gprs_as_edge", "1");
-        property_set("ro.mot.ignore_csim_appid", "true");
+        property_set("ro.com.google.clientidbase.ms", "android-sprint-us");
+        property_set("ro.com.google.clientidbase.am", "android-sprint-us");
+        property_set("ro.com.google.clientidbase.yt", "android-sprint-us");
+    } else if ((ISMATCH(carrier, "att")) || (strstr(hardware_variant, "Qinara"))) {
+        property_set("ro.product.device", "qinara");
+        property_set("ro.product.model", "ATRIX HD");
+        property_set("ro.build.description", "MB886_att-user 4.1.1 9.8.0Q-97_MB886_FFW-20 27 release-keys");
+        property_set("ro.build.fingerprint", "motorola/MB886_att/qinara:4.1.1/9.8.0Q-97_MB886_FFW-20/27:user/release-keys");
+        property_set("ro.sf.lcd_density", "320");
+        property_set("ro.mot.build.customerid ", "att");
+        property_set("telephony.lteOnGsmDevice", "1");
     }
 
     property_get("ro.product.device", device);
