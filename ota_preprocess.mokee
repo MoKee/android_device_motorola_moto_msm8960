@@ -63,7 +63,7 @@ fi
 
 if [ -f z2/system/etc/snd_soc_msm/snd_soc_msm_2x ];then
         mkdirp out/system/etc/snd_soc_msm 2> /dev/null
-        cp -R z2/system/etc/snd_soc_msm/snd_soc_msm_2x out/system/etc/snd$
+        cp -R z2/system/etc/snd_soc_msm/snd_soc_msm_2x out/system/etc/snd_soc_msm/
         rm z2/system/etc/snd_soc_msm/snd_soc_msm_2x
 fi
 if [ -f z1/system/etc/snd_soc_msm/snd_soc_msm_2x ];then
