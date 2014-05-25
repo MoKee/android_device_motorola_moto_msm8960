@@ -18,7 +18,7 @@
 
 if [ -f z2/system/etc/media_profiles_xt90x.xml ];then
 	mkdirp out/system/etc 2> /dev/null
-	cp -R z2/system/etc/media_profiles_xt90x.xml out/system/etc/
+	cp z2/system/etc/media_profiles_xt90x.xml out/system/etc/
 	rm z2/system/etc/media_profiles_xt90x.xml
 fi
 if [ -f z1/system/etc/media_profiles_xt90x.xml ];then
@@ -27,7 +27,7 @@ fi
 
 if [ -f z2/system/media/540.zip ];then
 	mkdirp out/system/media 2> /dev/null
-	cp -R z2/system/media/540.zip out/system/media/
+	cp z2/system/media/540.zip out/system/media/
 	rm z2/system/media/540.zip
 fi
 if [ -f z1/system/media/540.zip ];then
@@ -50,4 +50,13 @@ if [ -d z2/system/xt901 ];then
 fi
 if [ -d z1/system/xt901 ];then
 	rm -R z1/system/xt901
+fi
+
+if [ -f z2/system/etc/snd_soc_msm/snd_soc_msm_2x_xt92x ];then
+	mkdirp out/system/etc/snd_soc_msm 2> /dev/null
+	cp -R z2/system/etc/snd_soc_msm/snd_soc_msm_2x_xt92x out/system/etc/snd_soc_msm/
+	rm z2/system/etc/snd_soc_msm/snd_soc_msm_2x_xt92x
+fi
+if [ -f z1/system/etc/snd_soc_msm/snd_soc_msm_2x_xt92x ];then
+	rm z1/system/etc/snd_soc_msm/snd_soc_msm_2x_xt92x
 fi
