@@ -16,7 +16,7 @@
     "target_path": "vendor/motorola/qcom-common"
   },
   {
-    "repository": "android_kernel_motorola_msm8960-common",
-    "target_path": "kernel/motorola/msm8960-common"
+    "repository": "android_kernel_motorola_msm8960dt-common",
+    "target_path": "kernel/motorola/msm8960dt-common"
   }
 ]
