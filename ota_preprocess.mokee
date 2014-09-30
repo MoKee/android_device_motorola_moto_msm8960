@@ -25,6 +25,15 @@ if [ -f z1/system/etc/media_profiles_xt90x.xml ];then
 	rm z1/system/etc/media_profiles_xt90x.xml
 fi
 
+if [ -f z2/system/etc/media_profiles.xml ];then
+	mkdirp out/system/etc 2> /dev/null
+	cp z2/system/etc/media_profiles.xml out/system/etc/
+	rm z2/system/etc/media_profiles.xml
+fi
+if [ -f z1/system/etc/media_profiles.xml ];then
+	rm z1/system/etc/media_profiles.xml
+fi
+
 if [ -f z2/system/media/540.zip ];then
 	mkdirp out/system/media 2> /dev/null
 	cp z2/system/media/540.zip out/system/media/
@@ -32,15 +41,6 @@ if [ -f z2/system/media/540.zip ];then
 fi
 if [ -f z1/system/media/540.zip ];then
 	rm z1/system/media/540.zip
-fi
-
-if [ -d z2/system/xt897 ];then
-	mkdirp out/system 2> /dev/null
-	cp -R z2/system/xt897 out/system/
-	rm -R z2/system/xt897
-fi
-if [ -d z1/system/xt897 ];then
-	rm -R z1/system/xt897
 fi
 
 if [ -d z2/system/xt901 ];then
